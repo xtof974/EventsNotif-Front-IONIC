@@ -1,5 +1,7 @@
 {
   "name": "myEventPushNotif",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

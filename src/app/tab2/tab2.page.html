@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Nouvel Evénement
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,57 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
+      <ion-title size="large">Nouvel Evénement</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <form [formGroup]="eventForm">
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type d'évènement</ion-label>
+      <ion-select (ionChange)="changeType($event)" placeholder="type" formControlName="type">
+        <ion-select-option value="BIRTHDAY">Anniversaire</ion-select-option>
+        <ion-select-option value="OTHER">Autre</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Périodicité</ion-label>
+      <ion-select placeholder="periodicité" formControlName="period">
+        <ion-select-option value="PONCTUAL">Ponctuel</ion-select-option>
+        <ion-select-option value="ANNUAL">Annuel</ion-select-option>
+        <ion-select-option value="MENSUAL">Mensuel</ion-select-option>
+        <ion-select-option value="HEBDO">Hebdomadaire</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="eventForm.get('period').value==='ANNUAL' 
+  || eventForm.get('period').value==='PONCTUAL'">
+      <ion-label>Date</ion-label>
+      <ion-datetime formControlName="date" displayFormat="DD MMMM" placeholder="Date"></ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="eventForm.get('period').value==='MENSUAL'">
+      <ion-label>Jour du mois</ion-label>
+      <ion-datetime formControlName="date" displayFormat="DD" placeholder="Jour du mois"></ion-datetime>
+    </ion-item>
+
+    <ion-item *ngIf="eventForm.get('period').value==='HEBDO'">
+      <ion-label>Jour de la semaine</ion-label>
+      <ion-select placeholder="Jour">
+        <ion-select-option *ngFor="let day of days">{{day}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Remarque</ion-label>
+      <ion-textarea></ion-textarea>
+    </ion-item>
+  </form>
+  <ion-button [disabled]="!eventForm.valid" expand="block" (click)="valid()">Validation</ion-button>
+  <!-- <app-explore-container name="Tab 2 page"></app-explore-container> -->
 </ion-content>

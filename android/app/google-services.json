@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "112839286953",
+    "firebase_url": "https://eventapp-31c4d.firebaseio.com",
+    "project_id": "eventapp-31c4d",
+    "storage_bucket": "eventapp-31c4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:112839286953:android:6c18fdba8c4e6b3f8f49b8",
+        "android_client_info": {
+          "package_name": "com.courquet.events"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "112839286953-rpc0goiv97dg5gs030f175aelqm458mj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMU3AB3yM6D6MRNToAhj-Fv6hyQkR9xWU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "112839286953-rpc0goiv97dg5gs030f175aelqm458mj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
